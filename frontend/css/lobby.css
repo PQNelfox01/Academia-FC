@@ -1,8 +1,8 @@
+/* Fondo general con rayas verticales */
 body {
   margin: 0;
   font-family: 'Segoe UI', Arial, sans-serif;
   color: #111;
-  /* Fondo con rayas verticales verdes y blancas */
   background: repeating-linear-gradient(
     90deg,
     #176a3a 0px,
@@ -12,17 +12,93 @@ body {
   );
 }
 
-header {
-  background: #1b5e20; /* Verde oscuro */
+/* Header sticky y moderno */
+/* ...existing code... */
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #176a3a;
   color: #fff;
-  padding: 20px 0;
+  padding: 24px 0 16px 0;
   text-align: center;
-  position: relative;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  border-bottom: 5px solid #111;
+  transition: all 0.3s;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.header-title {
+  margin: 0;
+  font-size: 2.2rem;
+  transition: opacity 0.3s, font-size 0.3s;
+}
+
+#header-logo {
+  width: 90px;
+  margin-bottom: 10px;
+  transition: width 0.3s, margin 0.3s;
+}
+
+/* Estado reducido al hacer scroll */
+.sticky-header.shrink {
+  padding: 2px 0;
+  min-height: 0;
+  text-align: left;
+}
+
+.sticky-header.shrink .header-content {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  margin-left: 8px;
+}
+
+.sticky-header.shrink #header-logo {
+  width: 50px;
+  margin-bottom: 0;
+}
+
+.sticky-header.shrink .header-title {
+  opacity: 0;
+  font-size: 1rem;
+  width: 0;
+  overflow: hidden;
+  transition: opacity 0.2s, font-size 0.2s, width 0.2s;
+}
+
+.sticky-header nav ul {
+  gap: 12px;
+  font-size: 0.95rem;
+  margin-top: 0;
+  transition: margin 0.3s;
+}
+
+.sticky-header.shrink nav ul {
+  justify-content: center;
+  margin-left: 0;
+  margin-top: 0;
+}
+
+.sticky-header.sticky nav a {
+  padding: 3px 7px;
+  font-size: 0.95rem;
 }
 
 .logo {
-  width: 80px;
+  width: 90px;
+  margin-bottom: 10px;
   vertical-align: middle;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
 }
 
 nav ul {
@@ -32,78 +108,6 @@ nav ul {
   display: flex;
   justify-content: center;
   gap: 30px;
-}
-
-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.2s;
-}
-
-nav a:hover {
-  color: #43a047; /* Verde claro */
-}
-
-main {
-  max-width: 900px;
-  margin: 30px auto;
-  padding: 0 20px;
-}
-
-.bienvenida {
-  background: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  margin-bottom: 30px;
-  box-shadow: 0 2px 8px rgba(27,94,32,0.07);
-  border-left: 8px solid #1b5e20;
-}
-
-.noticias article {
-  background: #e0e0e0;
-  padding: 20px;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  border-left: 5px solid #43a047;
-}
-
-footer {
-  background: #111;
-  color: #fff;
-  text-align: center;
-  padding: 15px 0;
-  margin-top: 40px;
-}body {
-  margin: 0;
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: #f4f4f4;
-  color: #111;
-}
-
-header {
-  background: #176a3a; /* Verde principal */
-  color: #fff;
-  padding: 24px 0 16px 0;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-  border-bottom: 5px solid #111;
-  position: relative;
-}
-
-.logo {
-  width: 90px;
-  margin-bottom: 10px;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-}
-
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 18px 0 0 0;
-  display: flex;
-  justify-content: center;
-  gap: 36px;
 }
 
 nav a {
@@ -122,6 +126,7 @@ nav a:hover {
   border: 1px solid #176a3a;
 }
 
+/* Secciones principales */
 main {
   max-width: 900px;
   margin: 36px auto;
@@ -137,20 +142,63 @@ main {
   border-left: 8px solid #176a3a;
 }
 
-.noticias article {
-  background: #e8f5e9;
-  padding: 22px;
+/* Partidos y resultados */
+.partidos {
+  background: #fff;
+  padding: 28px;
   border-radius: 10px;
-  margin-bottom: 18px;
-  border-left: 5px solid #111;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 8px rgba(23,106,58,0.07);
+  border-left: 8px solid #176a3a;
 }
 
+.tabla-partidos {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 18px;
+}
+
+.tabla-partidos th,
+.tabla-partidos td {
+  border: 1px solid #e0e0e0;
+  padding: 10px 8px;
+  text-align: center;
+}
+
+.tabla-partidos th {
+  background: #176a3a;
+  color: #fff;
+}
+
+.resultados {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.resultados li {
+  background: #e8f5e9;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: #111;
+  font-weight: 500;
+}
+
+/* Noticias */
+.noticias article {
+  background: #e8f5e9;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border-left: 5px solid #176a3a;
+}
+
+/* Footer */
 footer {
   background: #111;
   color: #fff;
   text-align: center;
-  padding: 18px 0;
-  margin-top: 48px;
-  font-size: 1rem;
-  letter-spacing: 1px;
+  padding: 15px 5px;
+  margin-top: 40px;
 }

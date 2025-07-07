@@ -5,26 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Club Deportivo Academia FC - Página Oficial</title>
   <link rel="stylesheet" href="/frontend/css/lobby.css">
+  <link rel="icon" type="image/x-icon" href="/assets/image/logo.ico">
 </head>
 <body>
-  <header>
-    <img src="/assets/image/logo.png" alt="Logo Club" class="logo">
-    <h1>Club Deportivo Academia FC</h1>
-    <nav>
-      <ul>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Plantel</a></li>
-        <li><a href="#">Fixture</a></li>
-        <li><a href="#">Noticias</a></li>
-        <li><a href="#">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <section class="bienvenida">
-      <h2>Bienvenidos a la página oficial del Club Deportivo Academia FC</h2>
-      <p>¡Sigue todas las novedades, partidos y noticias de nuestro equipo amateur chileno!</p>
-    </section>
+  
+  <header class="sticky-header" id="main-header">
+  <div class="header-content">
+    <img src="/assets/image/logo.png" alt="Logo Club" class="logo" id="header-logo">
+    <h1 class="header-title" id="header-title">Club Deportivo Academia FC</h1>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Plantel</a></li>
+      <li><a href="#">Fixture</a></li>
+      <li><a href="#">Noticias</a></li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="bienvenida">
+    <h2>Bienvenidos a la página oficial del Club Deportivo Academia FC</h2>
+    <p>¡Sigue todas las novedades, partidos y noticias de nuestro equipo amateur chileno!</p>
+  </section>
+
+    <!-- Solo la parte relevante -->
+  <section class="partidos">
+    <h2>Próximos Partidos</h2>
+    <table class="tabla-partidos">
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Rival</th>
+          <th>Lugar</th>
+          <th>Hora</th>
+        </tr>
+      </thead>
+      <tbody id="partidos-tbody">
+        <!-- JS llenará esto -->
+      </tbody>
+    </table>
+    <h3>Últimos Resultados</h3>
+    <ul class="resultados" id="resultados-list">
+      <!-- JS llenará esto -->
+    </ul>
+  </section>
+
     <section class="noticias">
       <h2>Últimas Noticias</h2>
       <!-- Aquí puedes agregar noticias -->
@@ -33,9 +61,14 @@
         <p>El club ganó 2-1 en un emocionante encuentro...</p>
       </article>
     </section>
-  </main>
+</main>
+
   <footer>
     <p>&copy; 2025 Club Deportivo Academia FC. Todos los derechos reservados.</p>
+    <br>
+    <p>Pagina Diseñada por PQNelfox01.dev</p>
   </footer>
+
+  <script src="/frontend/js/lobby.js"></script>
 </body>
 </html>
