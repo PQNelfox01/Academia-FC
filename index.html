@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia FC</title>
+    <link rel="stylesheet" href="frontend/css/index.css">
+    <link rel="icon" type="image/x-icon" href="/assets/image/logo.ico">
+</head>
+<body>
+    <div class="center-container">
+        <img src="assets/image/logo.png" alt="Logo Academia FC" class="logo" id="logo">
+    </div>
+
+    <div id="loader-overlay">
+        <img src="assets/image/logo.png" alt="Cargando..." class="loader-logo">
+        <span class="loader-text">Cargando...</span>
+    </div>
+
+    <svg style="display:none;">
+    <filter id="ondulado">
+        <feTurbulence id="turb" baseFrequency="0.01 0.03" numOctaves="2" seed="2">
+        <animate attributeName="baseFrequency" dur="6s" values="0.01 0.03;0.02 0.06;0.01 0.03" repeatCount="indefinite"/>
+        </feTurbulence>
+        <feDisplacementMap in2="turb" in="SourceGraphic" scale="18" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    </svg>
+
+    <script src="/frontend/js/index.js"></script>
+</body>
+</html>

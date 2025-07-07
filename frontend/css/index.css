@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    height: 100vh;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background: repeating-linear-gradient(
+        90deg,
+        #176a3a 0px,
+        #176a3a 120px,
+        #fff 120px,
+        #fff 240px
+    );
+    background-size: 240px 100%;
+    filter: url(#ondulado);
+    pointer-events: none;
+}
+
+@keyframes moverRayas {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: 240px;
+    }
+}
+
+
+/* Logo */
+.center-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.logo {
+    width: 220px;
+    max-width: 80vw;
+    cursor: pointer;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.18));
+    transition: transform 0.2s;
+}
+
+.logo:hover {
+    transform: scale(1.07);
+}
+
+/* Logo Loader */
+#loader-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.92);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+#loader-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.loader-logo {
+    width: 90px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 16px;
+}
+@keyframes girar {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loader-text {
+    font-size: 1.2rem;
+    color: #176a3a;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
